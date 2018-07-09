@@ -1,0 +1,57 @@
+doctype html  
+html(lang='en')
+  head
+    link(rel='stylesheet', href='css/emails.css', data-inline)
+
+  body
+    p(class='intro_block')
+      | Thank you for your order from #{date}.
+      br
+      | Your order number is #{order_id}.
+
+    p(class='address_block')
+      if !address_comparison
+        span Shipping address:
+      else
+        span Address:
+      span #{shipping_address.first_name} #{shipping_address.last_name}
+      span #{shipping_address.line_1}
+      if shipping_address.line_2.length > 0
+        span #{shipping_address.line_2}
+      span #{shipping_address.postcode} #{shipping_address.city}
+      span #{shipping_address.country}
+
+    if !address_comparison
+      p(class='address_block')
+        span Billing address:
+        span #{billing_address.first_name} #{billing_address.last_name}
+        span #{billing_address.line_1}
+        if billing_address.line_2.length > 0
+          span #{billing_address.line_2}
+        span #{billing_address.postcode} #{billing_address.city}
+        span #{billing_address.country}
+
+    table(class='items_table', cellpadding='0', cellspacing='0')
+      tr(class='items_table_head')
+        th 
+          span Title
+        th 
+          span Quantity 
+        th 
+          span Unit price
+      each product in products
+        tr(class='items_table_entry')
+          td= product.name
+          td= product.quantity
+          td= product.meta.display_price.with_tax.unit.formatted
+
+    p(class='cost_block')
+      span Subtotal: #{amount}
+      if shipping_set
+        span Shipping: #{shipping_cost}
+      else 
+        span Shipping: free
+      span Tax (incl. #{tax_percentage}%): #{tax}
+      span Total: #{total}
+
+

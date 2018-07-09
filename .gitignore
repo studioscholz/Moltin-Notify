@@ -1,0 +1,13 @@
+node_modules
+
+.env
+
+yarn.lock
+
+yarn-error.log
+
+package-lock.json
+
+json
+
+localStorage

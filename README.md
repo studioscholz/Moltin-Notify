@@ -1,6 +1,6 @@
 # 📬 Moltin Notify
 
-e-Mail notifications and stock management for completed Moltin orders (vendor and customer)
+e-Mail notifications (vendor and customer) and stock management for completed Moltin orders
 
 ## Installation
 

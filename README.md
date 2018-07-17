@@ -5,7 +5,7 @@ e-Mail notifications (vendor and customer) and stock management for completed Mo
 ## Installation
 
 1. Clone this repository or download a copy to your local environment
-2. Add a .env file to the root folder:
+2. Add a .env file to the root folder
 ```
 MOLTIN_CLIENT_ID=
 MOLTIN_CLIENT_SECRET=
